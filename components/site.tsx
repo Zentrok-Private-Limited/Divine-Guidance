@@ -8,14 +8,14 @@ import {
   ChevronRight,
   Menu,
   Moon,
-  Phone,
+  Mail,
   Star,
   X,
   Sparkles
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export const phone = "+1 (551) 208-0398";
+export const mail = "contact@onlineastrotarot.com";
 const nav = [
   ["Home", "/"],
   ["Our Services", "/our-services"],
@@ -45,8 +45,8 @@ export function Header() {
     <>
       <div className="topbar">
         <span>Private consultations available nationwide</span>
-        <a href="tel:+15512080398">
-          <Phone size={14} /> {phone}
+        <a>
+          <Mail size={14} /> {mail}
         </a>
       </div>
       <header className="site-header">
@@ -458,8 +458,7 @@ export function Footer() {
       </div>
       <div>
         <h3>Contact</h3>
-        <a href="tel:+15512080398">Call {phone}</a>
-        <a href="mailto:hello@example.com">Email us</a>
+        <a href="mailto:hello@example.com">Email us : contact@onlineastrotarot.com</a>
         <p>2767 John F Kennedy Blvd, Jersey City, New Jersey 07306</p>
       </div>
     </footer>
