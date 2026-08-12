@@ -11,10 +11,22 @@ import {
   Mail,
   Star,
   X,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
+export type ServiceItem = [
+  title: string,
+  description: string,
+  image: string,
+  href: string,
+];
+
+interface ServiceCardProps {
+  service: ServiceItem;
+  index: number;
+}
 export const mail = "contact@onlineastrotarot.com";
 const nav = [
   ["Home", "/"],
@@ -22,16 +34,16 @@ const nav = [
   ["Our Locations", "/our-locations"],
   ["About us", "/#about"],
   ["Testimonials", "/#testimonials"],
-  ["Contact us", "/#contact"],
+  ["Contact us", "/contact"],
 ];
 const serviceLinks = [
   ["Psychic Reading", "/our-services/psychic-reading"],
   ["Love Spell", "/our-services/love-spell"],
   ["Spiritual Healing", "/our-services/spiritual-healing"],
-  ["NLP", "/our-services/nlp"],
-   ["Brahmshakti Healing", "/our-services/Brahmshakti-Healing"],
-    ["Reiki Healing", "/our-services/Reiki-Healing"],
-     ["Angel Healing", "/our-services/Angel-Healing"],
+  ["NLP - Neuro-Linguistic Programming", "/our-services/nlp"],
+  ["Brahmshakti Healing", "/our-services/Brahmshakti-Healing"],
+  ["Reiki Healing", "/our-services/Reiki-Healing"],
+  ["Angel Healing", "/our-services/Angel-Healing"],
 ];
 const locationLinks = [
   ["New Jersey", "/our-locations/new-jersey"],
@@ -55,7 +67,7 @@ export function Header() {
             <Moon size={21} />
           </span>
           <span>
-            DIVINE GUIDENCE<span>Find Your True Path</span>
+            DIVINE GUIDANCE<span>Find Your True Path</span>
           </span>
         </a>
         <nav className="desktop-nav">
@@ -87,7 +99,7 @@ export function Header() {
               {label}
             </a>
           ))}
-          <a className="nav-cta" href="tel:+15512080398">
+          <a className="nav-cta" href="tel:+15307917775">
             Call Now <ArrowUpRight size={15} />
           </a>
         </nav>
@@ -170,22 +182,21 @@ export function HeroSlider() {
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-  if (paused) return;
+    if (paused) return;
 
-  const timer = window.setTimeout(() => {
-    setDirection(1);
-    setActive((current) => (current + 1) % slides.length);
-  }, 6500);
+    const timer = window.setTimeout(() => {
+      setDirection(1);
+      setActive((current) => (current + 1) % slides.length);
+    }, 6500);
 
-  return () => window.clearTimeout(timer);
-}, [active, paused]);
+    return () => window.clearTimeout(timer);
+  }, [active, paused]);
 
   const move = (newDirection: number) => {
     setDirection(newDirection);
 
     setActive(
-      (current) =>
-        (current + newDirection + slides.length) % slides.length,
+      (current) => (current + newDirection + slides.length) % slides.length,
     );
   };
 
@@ -218,11 +229,7 @@ export function HeroSlider() {
       {/* --------------------------------
           SLIDE
       -------------------------------- */}
-      <AnimatePresence
-        initial={false}
-        custom={direction}
-        mode="sync"
-      >
+      <AnimatePresence initial={false} custom={direction} mode="sync">
         <motion.article
           key={active}
           custom={direction}
@@ -297,18 +304,18 @@ export function HeroSlider() {
 
               {/* CTA */}
               <motion.a
-  href="tel:+15512080398"
-  initial={{ opacity: 0, y: 15 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    delay: 0.45,
-    duration: 0.5,
-  }}
-  className="button button-gold inline-flex mt-8 items-center gap-2"
->
-  {cta}
-  <ArrowUpRight size={17} />
-</motion.a>
+                href="tel:+15307917775"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.45,
+                  duration: 0.5,
+                }}
+                className="button button-gold inline-flex mt-8 items-center gap-2"
+              >
+                {cta}
+                <ArrowUpRight size={17} />
+              </motion.a>
             </motion.div>
           </div>
         </motion.article>
@@ -338,9 +345,7 @@ export function HeroSlider() {
               key={slideTitle}
               type="button"
               aria-label={`Go to slide ${index + 1}`}
-              aria-current={
-                index === active ? "true" : undefined
-              }
+              aria-current={index === active ? "true" : undefined}
               onClick={() => {
                 setDirection(index > active ? 1 : -1);
                 setActive(index);
@@ -413,22 +418,53 @@ export function SectionHeading({
     </div>
   );
 }
-export function ServiceCard({
-  service,
-  index,
-}: {
-  service: readonly [string, string];
-  index: number;
-}) {
+export function ServiceCard({ service, index }: ServiceCardProps) {
+  const [title, description, image, href] = service;
+
   return (
-    <article className="service-card">
-      <div className="service-number">0{index + 1}</div>
-      <h3>{service[0]}</h3>
-      <p>{service[1]}</p>
-      <a href="tel:+15512080398">
-        Ask a question <ArrowUpRight size={15} />
-      </a>
-    </article>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      className="h-full"
+    >
+      <Link
+        href={href}
+        className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0a071d]/60 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-[#e5c77b]/40 hover:shadow-[0_10px_30px_rgba(229,199,123,0.1)]"
+      >
+        {/* Background Image with Hover Zoom & Gradient Overlay */}
+        <div className="relative mb-5 h-48 w-full overflow-hidden rounded-xl">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
+          />
+          {/* Dark vignette gradient for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a071d] via-[#0a071d]/30 to-transparent" />
+        </div>
+
+        {/* Text Content */}
+        <div className="flex flex-1 flex-col justify-between">
+          <div>
+            <h3 className="font-serif text-2xl font-medium text-white transition-colors duration-300 group-hover:text-[#e5c77b]">
+              {title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/70">
+              {description}
+            </p>
+          </div>
+
+          {/* Card Footer Action */}
+          <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-[#e5c77b]">
+            <span>Learn More</span>
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </div>
+        </div>
+      </Link>
+    </motion.div>
   );
 }
 export function Footer() {
@@ -439,9 +475,7 @@ export function Footer() {
           <span className="brand-mark">
             <Moon size={21} />
           </span>
-          <span>
-            DIVINE GUIDANCE
-          </span>
+          <span>DIVINE GUIDANCE</span>
         </a>
         <p>
           Private spiritual guidance for love, clarity, healing, and the road
@@ -458,7 +492,14 @@ export function Footer() {
       </div>
       <div>
         <h3>Contact</h3>
-        <a href="mailto:hello@example.com">Email us : contact@onlineastrotarot.com</a>
+        <p>
+          <a href="tel:+15307917775">Call us : +1 530-791-7775</a>
+        </p>
+        <p>
+          <a href="mailto:contact@onlineastrotarot.com">
+            Email us : contact@onlineastrotarot.com
+          </a>
+        </p>
         <p>2767 John F Kennedy Blvd, Jersey City, New Jersey 07306</p>
       </div>
     </footer>

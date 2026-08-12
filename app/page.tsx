@@ -54,23 +54,27 @@ export default function Home() {
             </a>
           </div>
         </section>
-        <section id="services" className="section-shell services">
-          <SectionHeading
-            eyebrow="Our services"
-            title="Trusted guidance for every chapter of life"
-          />
-          <div className="service-grid">
-            {serviceCatalog.map((service, index) => (
-              <ServiceCard key={service[0]} service={service} index={index} />
-            ))}
-          </div>
-          <a
-            className="button button-gold centered-button"
-            href="tel:+15512080398"
-          >
-            Ask your question now <ArrowUpRight size={17} />
-          </a>
-        </section>
+        <section id="services" className="section-shell services relative py-20">
+  <SectionHeading
+    eyebrow="Our services"
+    title="Trusted guidance for every chapter of life"
+  />
+
+  <div className="service-grid mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {serviceCatalog.map((service, index) => (
+      <ServiceCard key={service[0]} service={service} index={index} />
+    ))}
+  </div>
+
+  <div className="mt-12 flex justify-center">
+    <a
+      className="button button-gold centered-button inline-flex items-center gap-2 rounded-full bg-[#e5c77b] px-8 py-4 text-sm font-semibold text-black transition-all hover:bg-white hover:shadow-[0_0_25px_rgba(229,199,123,0.4)]"
+      href="tel:+15307917775"
+    >
+      Ask your question now <ArrowUpRight size={17} />
+    </a>
+  </div>
+</section>
         <section className="split-section">
           <div>
             <p className="eyebrow">An experienced, human approach</p>
@@ -80,7 +84,7 @@ export default function Home() {
               what has been difficult to name. Together, they offer a grounded
               way to reflect, choose, and move forward.
             </p>
-            <a className="button button-gold" href="tel:+15512080398">
+            <a className="button button-gold mt-8" href="tel:+15307917775">
               Book a private consultation <ArrowUpRight size={17} />
             </a>
           </div>
@@ -156,8 +160,8 @@ export default function Home() {
               Your next chapter starts with a conversation
             </p>
             <h2>Ready to ask your question?</h2>
-            <a className="button button-gold" href="tel:+15512080398">
-              Call now +1 (551) 208-0398 <ArrowUpRight size={17} />
+            <a className="button button-gold" href="tel:+15307917775">
+              Call now +1 530-791-7775 <ArrowUpRight size={17} />
             </a>
           </div>
           <div className="contact-details">

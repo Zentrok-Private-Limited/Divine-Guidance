@@ -30,7 +30,7 @@ export default function ServicesPage() {
             <p className="eyebrow">Start with one question</p>
             <h2>Find the session that feels right for you.</h2>
           </div>
-          <a className="button button-gold" href="tel:+15512080398">
+          <a className="button button-gold" href="tel:+15307917775">
             Book a consultation <ArrowUpRight size={17} />
           </a>
         </section>

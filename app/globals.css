@@ -615,14 +615,7 @@ footer a:not(.brand) {
 .service-card {
   overflow: hidden;
 }
-.service-card:before {
-  content: "";
-  display: block;
-  height: 150px;
-  margin: -32px -32px 24px;
-  background: url("/images/reading-cards.png") center/cover;
-  opacity: 0.72;
-}
+
 .service-card:nth-child(3n):before {
   background-image: url("/images/healing-portrait.png");
 }

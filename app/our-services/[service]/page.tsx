@@ -1,5 +1,48 @@
-import { ArrowUpRight } from 'lucide-react'
-import { Shell } from '@/components/site'
-import { serviceCatalog } from '@/lib/content'
+import { ArrowUpRight } from "lucide-react";
+import { Shell } from "@/components/site";
+import { serviceCatalog } from "@/lib/content";
 
-export default async function ServicePage({ params }: { params: Promise<{ service: string }> }) { const { service } = await params; const title = service.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' '); const match = serviceCatalog.find(([name]) => name.toLowerCase().replaceAll(' ', '-') === service); const description = match?.[1] ?? 'Explore a private session built around your questions, your story, and the path ahead.'; return <Shell><main><section className="page-hero"><p className="eyebrow">Private guidance</p><h1>{title}</h1><p>{description}</p><a className="button button-gold" href="tel:+15512080398">Book a private session <ArrowUpRight size={17} /></a></section><section className="section-shell article-page"><p className="eyebrow">What to expect</p><h2>A calm, confidential conversation</h2><p>Begin with the question that brought you here. Your session is designed to give you space to be heard, understand the energy around your situation, and leave with a clearer sense of what comes next.</p><p>Guidance is personal rather than one-size-fits-all, with practical reflection alongside spiritual insight.</p></section></main></Shell> }
+export default async function ServicePage({
+  params,
+}: {
+  params: Promise<{ service: string }>;
+}) {
+  const { service } = await params;
+  const title = service
+    .split("-")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+  const match = serviceCatalog.find(
+    ([name]) => name.toLowerCase().replaceAll(" ", "-") === service,
+  );
+  const description =
+    match?.[1] ??
+    "Explore a private session built around your questions, your story, and the path ahead.";
+  return (
+    <Shell>
+      <main>
+        <section className="page-hero">
+          <p className="eyebrow">Private guidance</p>
+          <h1>{title}</h1>
+          <p>{description}</p>
+          <a className="button button-gold mt-8" href="tel:+15512080398">
+            Book a private session <ArrowUpRight size={17} />
+          </a>
+        </section>
+        <section className="section-shell article-page">
+          <p className="eyebrow">What to expect</p>
+          <h2>A calm, confidential conversation</h2>
+          <p>
+            Begin with the question that brought you here. Your session is
+            designed to give you space to be heard, understand the energy around
+            your situation, and leave with a clearer sense of what comes next.
+          </p>
+          <p>
+            Guidance is personal rather than one-size-fits-all, with practical
+            reflection alongside spiritual insight.
+          </p>
+        </section>
+      </main>
+    </Shell>
+  );
+}
