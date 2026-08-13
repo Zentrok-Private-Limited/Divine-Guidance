@@ -1,11 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import {
-  HeroSlider,
   Rating,
   SectionHeading,
   ServiceCard,
-  Shell,
 } from "@/components/site";
+  
+import HeroSlider from "@/components/HeroSlider"
 import { locations, serviceCatalog } from "@/lib/content";
 
 const testimonials = [
@@ -25,7 +25,7 @@ const testimonials = [
 
 export default function Home() {
   return (
-    <Shell>
+    <>
       <main>
         <HeroSlider />
         <section id="about" className="section-shell about">
@@ -171,6 +171,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-    </Shell>
+    </>
   );
 }

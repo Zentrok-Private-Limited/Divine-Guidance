@@ -47,6 +47,14 @@ p {
   color: var(--muted);
   line-height: 1.8;
 }
+.header-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+}
+
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -56,16 +64,9 @@ p {
   text-transform: uppercase;
   background: #070b1c;
 }
-.topbar a {
-  display: flex;
-  gap: 7px;
-  align-items: center;
-  color: var(--gold);
-}
+
 .site-header {
-  position: absolute;
-  top: 37px;
-  z-index: 10;
+  /* Remove top: 37px and position: absolute from here */
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -75,6 +76,7 @@ p {
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(12px);
 }
+
 .brand {
   display: flex;
   align-items: center;
@@ -629,4 +631,78 @@ footer a:not(.brand) {
     scroll-behavior: auto !important;
     transition: none !important;
   }
+}
+
+/* Add to globals.css if you want a classic telephone wiggle animation */
+@keyframes ring-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(-15deg); }
+  30% { transform: rotate(15deg); }
+  45% { transform: rotate(-10deg); }
+  60% { transform: rotate(10deg); }
+  75% { transform: rotate(0deg); }
+}
+
+.animate-ring {
+  animation: ring-wiggle 1.2s ease-in-out infinite;
+}
+
+/* 1. Ensure the header allows dropdowns to overflow outside its bounds */
+.site-header {
+  overflow: visible !important;
+  position: relative;
+  z-index: 50;
+}
+
+/* 2. Set position relative on the parent container */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* 3. Style the click trigger (summary) */
+.nav-dropdown summary {
+  cursor: pointer;
+  list-style: none; /* Hide default browser marker */
+  user-select: none;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none; /* Hide default marker in WebKit/Safari */
+}
+
+/* 4. Position and float the dropdown menu */
+.nav-dropdown > div {
+  position: absolute;
+  top: 100%; /* Float right below the menu item */
+  left: 0;
+  min-width: 260px;
+  margin-top: 12px;
+  padding: 10px;
+  background: #0b1027; /* Dark background so text is readable */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 100; /* Sit above all hero section content */
+}
+
+/* 5. Dropdown Link Styling */
+.nav-dropdown > div a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-dropdown > div a:hover {
+  background: rgba(229, 199, 123, 0.12);
+  color: #e5c77b;
 }

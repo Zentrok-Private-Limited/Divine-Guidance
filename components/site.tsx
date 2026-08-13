@@ -55,62 +55,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="topbar">
-        <span>Private consultations available nationwide</span>
-        <a>
-          <Mail size={14} /> {mail}
-        </a>
-      </div>
-      <header className="site-header">
-        <a className="brand" href="/">
-          <span className="brand-mark">
-            <Moon size={21} />
-          </span>
-          <span>
-            DIVINE GUIDANCE<span>Find Your True Path</span>
-          </span>
-        </a>
-        <nav className="desktop-nav">
-          <a href="/">Home</a>
-          <details className="nav-dropdown">
-            <summary>Our Services</summary>
-            <div>
-              {serviceLinks.map(([label, href]) => (
-                <a key={href} href={href}>
-                  {label}
-                  <ArrowUpRight size={14} />
-                </a>
-              ))}
-            </div>
-          </details>
-          <details className="nav-dropdown">
-            <summary>Our Locations</summary>
-            <div>
-              {locationLinks.map(([label, href]) => (
-                <a key={href} href={href}>
-                  {label}
-                  <ArrowUpRight size={14} />
-                </a>
-              ))}
-            </div>
-          </details>
-          {nav.slice(3).map(([label, href]) => (
-            <a key={label} href={href}>
-              {label}
-            </a>
-          ))}
-          <a className="nav-cta" href="tel:+15307917775">
-            Call Now <ArrowUpRight size={15} />
-          </a>
-        </nav>
-        <button
-          className="menu-button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X /> : <Menu />}
-        </button>
-      </header>
+      
       {open && (
         <nav className="mobile-nav">
           <a href="/" onClick={() => setOpen(false)}>
@@ -465,53 +410,6 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
         </div>
       </Link>
     </motion.div>
-  );
-}
-export function Footer() {
-  return (
-    <footer>
-      <div>
-        <a className="brand" href="/">
-          <span className="brand-mark">
-            <Moon size={21} />
-          </span>
-          <span>DIVINE GUIDANCE</span>
-        </a>
-        <p>
-          Private spiritual guidance for love, clarity, healing, and the road
-          ahead.
-        </p>
-        <small>© 2026 Divine Guidance. All rights reserved.</small>
-      </div>
-      <div>
-        <h3>Explore</h3>
-        <a href="/our-services">Our Services</a>
-        <a href="/our-locations">Our Locations</a>
-        <a href="/#about">About us</a>
-        <a href="/#testimonials">Testimonials</a>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <p>
-          <a href="tel:+15307917775">Call us : +1 530-791-7775</a>
-        </p>
-        <p>
-          <a href="mailto:contact@onlineastrotarot.com">
-            Email us : contact@onlineastrotarot.com
-          </a>
-        </p>
-        <p>2767 John F Kennedy Blvd, Jersey City, New Jersey 07306</p>
-      </div>
-    </footer>
-  );
-}
-export function Shell({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <Header />
-      {children}
-      <Footer />
-    </>
   );
 }
 export function Rating() {

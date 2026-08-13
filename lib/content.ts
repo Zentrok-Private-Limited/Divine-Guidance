@@ -28,7 +28,7 @@ export const serviceCatalog: ServiceItem[] = [
     "Divorce Problem Solution",
     "Find clarity and peace, rebuild understanding, and move forward with positive energy and expert insight.",
     "/images/divorce.jpg",
-    "/our-services/divorce-solution",
+    "/our-services/love-spell",
   ],
   [
     "Love Spell",

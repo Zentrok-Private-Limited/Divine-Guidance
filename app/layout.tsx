@@ -1,4 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
@@ -19,7 +21,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className="bg-background">
       <body className="antialiased">
+        <Header/>
         {children}
+        <Footer/>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

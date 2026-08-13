@@ -1,10 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
-import { SectionHeading, ServiceCard, Shell } from "@/components/site";
+import { SectionHeading, ServiceCard } from "@/components/site";
 import { serviceCatalog } from "@/lib/content";
 
 export default function ServicesPage() {
   return (
-    <Shell>
+    <>
       <main>
         <section className="page-hero">
           <p className="eyebrow">Private spiritual guidance</p>
@@ -35,6 +35,6 @@ export default function ServicesPage() {
           </a>
         </section>
       </main>
-    </Shell>
+    </>
   );
 }
