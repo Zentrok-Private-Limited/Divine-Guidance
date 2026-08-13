@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import Script from "next/script";
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
@@ -21,6 +22,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className="bg-background">
       <body className="antialiased">
+        <Script
+          src="//code.jivosite.com/widget/0YRhmJGQmF" 
+          strategy="afterInteractive"
+        />
         <Header/>
         {children}
         <Footer/>

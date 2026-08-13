@@ -148,6 +148,11 @@ export default function Header({
           {open ? <X /> : <Menu />}
         </button>
       </header>
+      <div className="belowbar overflow-hidden border-b border-white/10 bg-[#0a071d]">
+  <p className="belowbar-text">
+    Get your solution through Astro, Tarot, Neuro and Psychic Reading
+  </p>
+</div>
     </>
   );
 }

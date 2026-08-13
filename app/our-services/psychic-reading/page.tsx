@@ -21,6 +21,12 @@ import {
 export default function PsychicReadingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
+
   const benefits = [
     {
       icon: Eye,
@@ -149,15 +155,14 @@ export default function PsychicReadingPage() {
                   </span>
                 </a>
 
-                <a
-                  href="https://wa.me/15307917775"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-8 py-4 text-sm font-semibold text-emerald-400 transition-all hover:bg-emerald-500 hover:text-black"
+                <button
+                  type="button"
+                  onClick={openChat}
+                  className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/10 px-8 py-4 text-sm font-semibold text-blue-400 transition-all hover:bg-blue-500 hover:text-black"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  <span>WhatsApp Consultation</span>
-                </a>
+                  <span>Live Chat</span>
+                </button>
               </div>
 
               {/* Quick Info Badges */}

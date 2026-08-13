@@ -26,6 +26,12 @@ export default function ContactPage() {
     message: "",
   });
 
+  const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Insert API or Email handler here
@@ -47,7 +53,7 @@ export default function ContactPage() {
     },
     {
       q: "How quickly can I expect a response after booking?",
-      a: "We strive to respond to all inquiries within 2 to 4 hours. For urgent spiritual concerns, you can reach us directly via telephone or WhatsApp.",
+      a: "We strive to respond to all inquiries within 2 to 4 hours. For urgent spiritual concerns, you can reach us directly via Call or Chat.",
     },
   ];
 
@@ -85,7 +91,8 @@ export default function ContactPage() {
 
           <p className="mt-6 text-base font-light leading-relaxed text-white/70 md:text-lg">
             Have questions about your reading, need urgent spiritual guidance,
-            or want to schedule a personal consultation? We are here to guide you.
+            or want to schedule a personal consultation? We are here to guide
+            you.
           </p>
         </motion.div>
       </section>
@@ -95,7 +102,6 @@ export default function ContactPage() {
       {/* -------------------------------------------------------------------------- */}
       <section className="mx-auto max-w-7xl px-6 py-12 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          
           {/* Left Column: Direct Contact Info & Quick Actions */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -109,7 +115,8 @@ export default function ContactPage() {
                 Contact Information
               </h2>
               <p className="mt-2 text-sm text-white/70">
-                Reach out directly through any of our channels for immediate assistance.
+                Reach out directly through any of our channels for immediate
+                assistance.
               </p>
 
               <div className="mt-8 space-y-6">
@@ -134,28 +141,31 @@ export default function ContactPage() {
                   </div>
                 </a>
 
-                {/* WhatsApp Action */}
-                <a
-                  href="https://wa.me/+15307917775"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-4 rounded-2xl border border-white/10 bg-[#0a071d]/60 p-5 backdrop-blur-md transition-all hover:border-emerald-500/50 hover:bg-[#0a071d]"
+                {/* Live Chat Action */}
+                <button
+                  onClick={openChat}
+                  className="group flex w-full items-center gap-4 rounded-2xl border border-white/10 bg-[#0a071d]/60 p-5 text-left backdrop-blur-md transition-all duration-300 hover:border-emerald-500/50 hover:bg-[#0a071d]"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 transition-colors group-hover:bg-emerald-500 group-hover:text-black">
+                  {/* Icon */}
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 transition-all duration-300 group-hover:border-emerald-500 group-hover:bg-emerald-500 group-hover:text-black">
                     <MessageCircle className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h3 className="text-xs uppercase tracking-wider text-white/50">
-                      WhatsApp Chat
+
+                  {/* Content */}
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-xs font-medium uppercase tracking-wider text-white/50">
+                      Live Chat
                     </h3>
-                    <p className="mt-1 font-serif text-xl text-white group-hover:text-emerald-400">
-                      Chat on WhatsApp
+
+                    <p className="mt-1 font-serif text-xl leading-tight text-white transition-colors group-hover:text-emerald-400">
+                      Chat Now
                     </p>
-                    <p className="mt-0.5 text-xs text-white/60">
-                      Available 24/7 for confidential messages
+
+                    <p className="mt-1 text-xs leading-relaxed text-white/60">
+                      Available 24/7 for messages
                     </p>
                   </div>
-                </a>
+                </button>
 
                 {/* Email Card */}
                 <a
@@ -191,7 +201,8 @@ export default function ContactPage() {
                       Monday – Sunday: 8:00 AM – 10:00 PM EST
                     </p>
                     <p className="mt-0.5 text-xs text-white/60">
-                      Emergency spiritual healing sessions available upon request
+                      Emergency spiritual healing sessions available upon
+                      request
                     </p>
                   </div>
                 </div>
@@ -217,7 +228,8 @@ export default function ContactPage() {
                     Message Sent Successfully
                   </h3>
                   <p className="mt-3 max-w-md text-sm text-white/70">
-                    Thank you for reaching out. We have received your inquiry and will reach back out to you shortly.
+                    Thank you for reaching out. We have received your inquiry
+                    and will reach back out to you shortly.
                   </p>
                   <button
                     onClick={() => setFormSubmitted(false)}
@@ -233,7 +245,8 @@ export default function ContactPage() {
                       Request a Consultation
                     </h2>
                     <p className="mt-1 text-xs text-white/60">
-                      Fill out the details below to schedule your spiritual reading or healing session.
+                      Fill out the details below to schedule your spiritual
+                      reading or healing session.
                     </p>
                   </div>
 
@@ -303,28 +316,46 @@ export default function ContactPage() {
                         }
                         className="w-full rounded-xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-white focus:border-[#e5c77b] focus:outline-none focus:ring-1 focus:ring-[#e5c77b]"
                       >
-                        <option value="Psychic Reading" className="bg-[#0a071d]">
+                        <option
+                          value="Psychic Reading"
+                          className="bg-[#0a071d]"
+                        >
                           Psychic Reading
                         </option>
-                        <option value="Get Ex Lover Back" className="bg-[#0a071d]">
+                        <option
+                          value="Get Ex Lover Back"
+                          className="bg-[#0a071d]"
+                        >
                           Get Ex Lover Back
                         </option>
-                        <option value="Spiritual Healing" className="bg-[#0a071d]">
+                        <option
+                          value="Spiritual Healing"
+                          className="bg-[#0a071d]"
+                        >
                           Spiritual Healing
                         </option>
-                        <option value="Divorce Problem Solution" className="bg-[#0a071d]">
+                        <option
+                          value="Divorce Problem Solution"
+                          className="bg-[#0a071d]"
+                        >
                           Divorce Problem Solution
                         </option>
                         <option value="Love Spell" className="bg-[#0a071d]">
                           Love Spell
                         </option>
-                        <option value="Job & Business Solution" className="bg-[#0a071d]">
+                        <option
+                          value="Job & Business Solution"
+                          className="bg-[#0a071d]"
+                        >
                           Job & Business Solution
                         </option>
                         <option value="NLP Healing" className="bg-[#0a071d]">
                           NLP - Neuro-Linguistic
                         </option>
-                        <option value="Brahmshakti Healing" className="bg-[#0a071d]">
+                        <option
+                          value="Brahmshakti Healing"
+                          className="bg-[#0a071d]"
+                        >
                           Brahmshakti Healing
                         </option>
                         <option value="Reiki Healing" className="bg-[#0a071d]">
@@ -333,7 +364,10 @@ export default function ContactPage() {
                         <option value="Angel Healing" className="bg-[#0a071d]">
                           Angel Healing
                         </option>
-                        <option value="Healing & Meditation" className="bg-[#0a071d]">
+                        <option
+                          value="Healing & Meditation"
+                          className="bg-[#0a071d]"
+                        >
                           Healing & Meditation
                         </option>
                       </select>

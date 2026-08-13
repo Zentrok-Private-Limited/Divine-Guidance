@@ -66,6 +66,34 @@ p {
   background: #070b1c;
 }
 
+.belowbar {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.belowbar-text {
+  margin: 0;
+  white-space: nowrap;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  animation: moveLeftRight 18s ease-in-out infinite alternate;
+  font-weight:400;
+}
+
+@keyframes moveLeftRight {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(100vw - 100%));
+  }
+}
+
 .site-header {
   /* Remove top: 37px and position: absolute from here */
   width: 100%;

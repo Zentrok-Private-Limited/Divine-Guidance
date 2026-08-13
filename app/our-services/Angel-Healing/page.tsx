@@ -22,6 +22,12 @@ import {
 export default function AngelHealingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
+
   const pillars = [
     {
       icon: Feather,
@@ -83,7 +89,8 @@ export default function AngelHealingPage() {
         "Angel Healing is a gentle, high-vibrational spiritual healing modality that works with divine angelic beings, Archangels, and Guardian Angels. Practitioners act as channels to bring down angelic light, love, and guidance to heal physical, emotional, and spiritual issues.",
     },
     {
-      question: "Do I need to belong to a specific religion to receive Angel Healing?",
+      question:
+        "Do I need to belong to a specific religion to receive Angel Healing?",
       answer:
         "Not at all. Angel Healing is non-denominational and universal. Angels are cosmic beings of divine light and love that transcend religious boundaries. Anyone seeking peace, healing, or guidance can benefit.",
     },
@@ -114,7 +121,6 @@ export default function AngelHealingPage() {
       <section className="relative px-6 pb-16 pt-14 md:px-12 lg:px-16 lg:pt-12">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
-            
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -134,7 +140,9 @@ export default function AngelHealingPage() {
               </h1>
 
               <p className="mt-6 text-base font-light leading-relaxed text-white/80 md:text-lg">
-                Surrender your burdens to the angels. Channel high-vibrational angelic light, cut toxic energetic cords, and welcome deep peace, spiritual protection, and divine love into your life.
+                Surrender your burdens to the angels. Channel high-vibrational
+                angelic light, cut toxic energetic cords, and welcome deep
+                peace, spiritual protection, and divine love into your life.
               </p>
 
               {/* Action Buttons */}
@@ -149,15 +157,14 @@ export default function AngelHealingPage() {
                   </span>
                 </a>
 
-                <a
-                  href="https://wa.me/15307917775"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-8 py-4 text-sm font-semibold text-emerald-400 transition-all hover:bg-emerald-500 hover:text-black"
+                <button
+                  type="button"
+                  onClick={openChat}
+                  className="inline-flex items-center gap-2 rounded-full border border-blue-500/40 bg-blue-500/10 px-8 py-4 text-sm font-semibold text-blue-400 transition-all hover:bg-blue-500 hover:text-black"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  <span>WhatsApp Consultation</span>
-                </a>
+                  <span>Live Chat</span>
+                </button>
               </div>
 
               {/* Quick Info Badges */}
@@ -189,7 +196,7 @@ export default function AngelHealingPage() {
                   className="object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#05030e] via-transparent to-transparent" />
-                
+
                 <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/10 bg-[#0a071d]/80 p-5 backdrop-blur-md">
                   <p className="font-serif text-lg text-[#e5c77b]">
                     "Surrounded by divine wings of light & peace."
@@ -200,7 +207,6 @@ export default function AngelHealingPage() {
                 </div>
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -215,10 +221,17 @@ export default function AngelHealingPage() {
               Embrace Divine Comfort & Pure High-Frequency Rays
             </h2>
             <p className="mt-4 text-base font-light leading-relaxed text-white/70">
-              Angels are divine messengers of unconditional love, grace, and light. When you feel overwhelmed by life's hardships, fear, or emotional heartbreak, Angel Healing creates a safe bridge between your spirit and the celestial realms.
+              Angels are divine messengers of unconditional love, grace, and
+              light. When you feel overwhelmed by life's hardships, fear, or
+              emotional heartbreak, Angel Healing creates a safe bridge between
+              your spirit and the celestial realms.
             </p>
             <p className="mt-4 text-base font-light leading-relaxed text-white/70">
-              Working directly with Archangels like Michael (Protection & Strength), Raphael (Physical & Emotional Healing), Gabriel (Guidance & Communication), and Uriel (Wisdom & Clarity), our sessions gently clear heavy energies and restore divine harmony to your soul.
+              Working directly with Archangels like Michael (Protection &
+              Strength), Raphael (Physical & Emotional Healing), Gabriel
+              (Guidance & Communication), and Uriel (Wisdom & Clarity), our
+              sessions gently clear heavy energies and restore divine harmony to
+              your soul.
             </p>
           </div>
 
@@ -231,7 +244,10 @@ export default function AngelHealingPage() {
               "Enhance spiritual connection & inner peacefulness",
               "Available via distance or in-person sessions",
             ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3 text-sm text-white/80">
+              <div
+                key={i}
+                className="flex items-center gap-3 text-sm text-white/80"
+              >
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-[#e5c77b]" />
                 <span>{item}</span>
               </div>
@@ -339,7 +355,9 @@ export default function AngelHealingPage() {
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
                   className="flex w-full items-center justify-between p-6 text-left"
                 >
-                  <span className="font-serif text-lg text-white">{faq.question}</span>
+                  <span className="font-serif text-lg text-white">
+                    {faq.question}
+                  </span>
                   <ChevronDown
                     className={`h-5 w-5 text-[#e5c77b] transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
@@ -374,7 +392,8 @@ export default function AngelHealingPage() {
             Invite Divine Angelic Blessings Into Your Life
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm font-light text-white/70 md:text-base">
-            Experience the comforting embrace of angelic healing. Book a private session to clear fear and step into celestial light.
+            Experience the comforting embrace of angelic healing. Book a private
+            session to clear fear and step into celestial light.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
