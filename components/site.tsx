@@ -55,7 +55,6 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <>
-      
       {open && (
         <nav className="mobile-nav">
           <a href="/" onClick={() => setOpen(false)}>
@@ -403,10 +402,17 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           </div>
 
           {/* Card Footer Action */}
-          <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-[#e5c77b]">
+          <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase button button-gold">
             <span>Learn More</span>
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
+          <a
+            href="tel:+15307917775"
+            className="group inline-flex mt-4 items-center gap-2 button button-gold px-5 py-2.5 text-xs font-bold tracking-wider uppercase text-[#080616] shadow-[0_2px_10px_rgba(229,199,123,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(229,199,123,0.6)] active:scale-95"
+          >
+            <span className="text-[#080616]">Call Now (+1 530-791-7775)</span>
+            <ArrowUpRight className="h-4 w-4 text-[#080616] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </div>
       </Link>
     </motion.div>

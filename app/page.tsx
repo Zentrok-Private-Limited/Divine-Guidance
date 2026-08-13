@@ -49,7 +49,7 @@ export default function Home() {
               Every session is personal, confidential, and centered on helping
               you feel more grounded and empowered in your own decisions.
             </p>
-            <a className="button button-gold centered-button text-link" href="/our-services">
+            <a className="button button-gold centered-button hover:text-black" href="/our-services">
               Explore all services <ArrowUpRight size={15} />
             </a>
           </div>

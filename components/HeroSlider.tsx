@@ -15,32 +15,32 @@ const slides = [
   [
     "Find Solutions to Your Marriage Life Problems",
     "",
-    "Call Now For Book Your Appointment",
+    "Call Now +1 530-791-7775",
     "/images/slide1.png",
   ],
   [
     "Discover Your Future Through a Psychic Reading",
     "",
-    "Call Now For Book Your Appointment",
+    "Call Now +1 530-791-7775",
     "/images/slide4.jpg",
   ],
   [
     "Find Clarity & Solutions for Your Love Life",
     "",
-    "Call Now For Book Your Appointment",
+    "Call Now +1 530-791-7775",
     "/images/slide2.jpg",
   ],
   [
     "Find Guidance Through Divorce & Relationship Challenges",
     "",
-    "Call Now For Book Your Appointment",
+    "Call Now +1 530-791-7775",
     "/images/slide3.png",
   ],
   
   [
     "Heal Within & Reconnect With Your Inner Self",
     "",
-    "Call Now For Book Your Appointment",
+    "Call Now +1 530-791-7775",
     "/images/slide5.jpg",
   ],
 ];
@@ -190,10 +190,10 @@ export default function HeroSlider() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25, duration: 0.3 }}
-                  className="inline-flex mt-4 items-center gap-1.5 rounded-full bg-[#e5c77b] px-4 py-2 text-[11px] font-semibold tracking-wider text-[#080616] transition-all duration-300 hover:bg-[#f3d387] hover:shadow-[0_0_20px_rgba(229,199,123,0.6)] hover:scale-105"
+                  className="inline-flex mt-6 items-center gap-1.5 bg-[#e5c77b] px-4 py-2 text-base font-light tracking-wider text-[#080616] transition-all duration-300 hover:bg-[#f3d387] hover:shadow-[0_0_20px_rgba(229,199,123,0.6)] hover:scale-105"
                 >
                   <span className="text-[#080616]">{cta}</span>
-                  <ArrowUpRight size={13} className="text-[#080616] shrink-0" />
+                  <ArrowUpRight size={16} className="text-[#080616] shrink-0" />
                 </motion.a>
               </motion.div>
             </div>

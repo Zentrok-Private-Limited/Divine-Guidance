@@ -61,7 +61,7 @@ export default function Header({
         <span>Private consultations available nationwide CALL US NOW
             <a
             href={`tel:${formattedPhone}`}
-            className="mx-4 group inline-flex items-center gap-2 font-medium text-[#e5c77b] transition-colors hover:text-white"
+            className="mx-6 group inline-flex items-center gap-2 font-medium text-[#e5c77b] transition-colors hover:text-white"
           >
             <span className="relative flex h-3.5 w-3.5 items-center justify-center">
               {/* Outer expanding ring effect */}
@@ -69,11 +69,11 @@ export default function Header({
 
               {/* Ringing/Vibrating Icon */}
               <Phone
-                size={14}
+                size={18}
                 className="relative animate-[bounce_1s_infinite] text-[#e5c77b] transition-transform group-hover:scale-110"
               />
             </span>
-            <span>{safePhone}</span>
+            <span className="text-[#e5c77b] font-bold text-base animate-[bounce_1s_infinite]">{safePhone}</span>
           </a></span>
 
         <div className="flex items-center gap-6">

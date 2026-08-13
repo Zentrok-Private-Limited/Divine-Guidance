@@ -111,7 +111,7 @@ export default function AngelHealingPage() {
       {/* -------------------------------------------------------------------------- */}
       {/* Hero Section                                                               */}
       {/* -------------------------------------------------------------------------- */}
-      <section className="relative px-6 pt-24 pb-16 md:px-12 lg:px-16 lg:pt-32">
+      <section className="relative px-6 pb-16 pt-14 md:px-12 lg:px-16 lg:pt-12">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
             

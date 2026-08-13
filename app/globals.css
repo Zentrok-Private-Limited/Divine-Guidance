@@ -60,6 +60,7 @@ p {
   justify-content: space-between;
   padding: 9px clamp(20px, 5vw, 80px);
   font-size: 11px;
+  height: 45px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   background: #070b1c;
