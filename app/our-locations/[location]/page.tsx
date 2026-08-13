@@ -1,4 +1,44 @@
-import { ArrowUpRight } from 'lucide-react'
-import { Shell } from '@/components/site'
+import { ArrowUpRight } from "lucide-react";
 
-export default async function LocationPage({ params }: { params: Promise<{ location: string }> }) { const { location } = await params; const title = location.split('-').map(word => word[0].toUpperCase() + word.slice(1)).join(' '); return <Shell><main><section className="page-hero"><p className="eyebrow">Private consultations in {title}</p><h1>Astrology and psychic guidance in {title}</h1><p>Receive compassionate, confidential support for love, career, healing, and the choices ahead, from wherever you are in {title}.</p><a className="button button-gold" href="tel:+15512080398">Book your reading <ArrowUpRight size={17} /></a></section><section className="section-shell article-page"><p className="eyebrow">A conversation designed around you</p><h2>Clarity can begin with one honest question</h2><p>Every consultation is a calm space to share what has been weighing on you. Through intuitive guidance and reflective astrology, you can explore patterns, possibilities, and practical next steps without judgment.</p><p>Sessions are available by phone and online, making it easy to connect from {title} at a time that works for you.</p></section></main></Shell> }
+export default async function LocationPage({
+  params,
+}: {
+  params: Promise<{ location: string }>;
+}) {
+  const { location } = await params;
+  const title = location
+    .split("-")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+  return (
+    <>
+      <main>
+        <section className="page-hero">
+          <p className="eyebrow">Private consultations in {title}</p>
+          <h1>Astrology and psychic guidance in {title}</h1>
+          <p>
+            Receive compassionate, confidential support for love, career,
+            healing, and the choices ahead, from wherever you are in {title}.
+          </p>
+          <a className="button button-gold" href="tel:+15512080398">
+            Book your reading <ArrowUpRight size={17} />
+          </a>
+        </section>
+        <section className="section-shell article-page">
+          <p className="eyebrow">A conversation designed around you</p>
+          <h2>Clarity can begin with one honest question</h2>
+          <p>
+            Every consultation is a calm space to share what has been weighing
+            on you. Through intuitive guidance and reflective astrology, you can
+            explore patterns, possibilities, and practical next steps without
+            judgment.
+          </p>
+          <p>
+            Sessions are available by phone and online, making it easy to
+            connect from {title} at a time that works for you.
+          </p>
+        </section>
+      </main>
+    </>
+  );
+}

@@ -1,10 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
-import { SectionHeading, Shell } from "@/components/site";
+import { SectionHeading } from "@/components/site";
 import { locations } from "@/lib/content";
 
 export default function LocationsPage() {
   return (
-    <Shell>
+    <>
       <main>
         <section className="page-hero">
           <p className="eyebrow">Nationwide access</p>
@@ -32,6 +32,6 @@ export default function LocationsPage() {
           </div>
         </section>
       </main>
-    </Shell>
+    </>
   );
 }
