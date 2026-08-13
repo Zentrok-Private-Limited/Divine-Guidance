@@ -48,38 +48,38 @@ const slides = [
 // Service Cards data
 const serviceCards = [
   {
-    title: "Psychic Reading",
-    subtitle: "For clarity, future insights & deep guidance",
-    image: "/images/psychicreading.jpg",
-    link: "/our-services/psychic-reading",
-  },
-  {
-    title: "Love & Relationships",
-    subtitle: "Harmony, attraction & stronger emotional bonds",
+    title: "Are You Struggling in Your Love Life?",
+    subtitle: "Find clarity in relationships, emotional connections & love challenges",
     image: "/images/getexloverback.jpg",
     link: "/our-services/love-spell",
   },
   {
-    title: "Spiritual Healing",
-    subtitle: "Remove negativity & restore energetic balance",
+    title: "Feeling Uncertain About Your Future?",
+    subtitle: "Gain insight, clarity & deeper guidance about the path ahead",
+    image: "/images/psychicreading.jpg",
+    link: "/our-services/psychic-reading",
+  },
+  {
+    title: "Going Through Emotional or Spiritual Struggles?",
+    subtitle: "Release negativity, restore balance & reconnect with yourself",
     image: "/images/heal.jpg",
     link: "/our-services/spiritual-healing",
   },
   {
-    title: "Reiki & Energy Healing",
-    subtitle: "Chakra balance, vitality & deep relaxation",
+    title: "Feeling Stressed, Drained or Out of Balance?",
+    subtitle: "Restore your energy, balance your chakras & encourage deep relaxation",
     image: "/images/reikihealing.jpg",
     link: "/our-services/Reiki-Healing",
   },
-   {
-    title: "NLP & Mind Alignment",
-    subtitle: "Overcome blockages & reprogram your mindset",
+  {
+    title: "Feeling Stuck in Your Career or Life?",
+    subtitle: "Break through mental blocks, shift limiting patterns & gain a new perspective",
     image: "/images/nlp.jpg",
     link: "/our-services/nlp",
   },
   {
-    title: "Angel Healing",
-    subtitle: "Connect with divine protection & higher wisdom",
+    title: "Seeking Protection, Peace or Spiritual Guidance?",
+    subtitle: "Connect with higher wisdom and find comfort, guidance & inner peace",
     image: "/images/angelhealing.jpg",
     link: "/our-services/Angel-Healing",
   },
