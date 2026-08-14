@@ -1,14 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ArrowUpRight,
-  Menu,
-  Moon,
-  X,
-  Mail,
-  Phone,
-} from "lucide-react";
+import { ArrowUpRight, Menu, Moon, X, Mail, Phone } from "lucide-react";
 
 export const defaultMail = "contact@onlineastrotarot.com";
 export const defaultPhone = "+1 530-791-7775";
@@ -31,7 +24,7 @@ export default function Header({
     ["Home", "/"],
     ["Our Services", "/our-services"],
     ["Our Locations", "/our-locations"],
-    ["About us", "/#about"],
+    ["About us", "/aboutUs"],
     ["Testimonials", "/#testimonials"],
     ["Contact us", "/contact"],
   ];
@@ -51,6 +44,11 @@ export default function Header({
     ["New York", "/our-locations/new-york"],
     ["California", "/our-locations/california"],
   ];
+  const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
 
   const [open, setOpen] = useState(false);
 
@@ -58,8 +56,9 @@ export default function Header({
     <>
       {/* Top Bar */}
       <div className="topbar flex flex-wrap items-center justify-between gap-4 border-b border-white/10 bg-[#0a071d] px-6 py-2.5 text-xs text-white/80">
-        <span>Private consultations available nationwide CALL US NOW
-            <a
+        <span className="flex items-center">
+          Private consultations available nationwide CALL US NOW
+          <a
             href={`tel:${formattedPhone}`}
             className="mx-6 group inline-flex items-center gap-2 font-medium text-[#e5c77b] transition-colors hover:text-white"
           >
@@ -69,12 +68,15 @@ export default function Header({
 
               {/* Ringing/Vibrating Icon */}
               <Phone
-                size={18}
-                className="relative animate-[bounce_1s_infinite] text-[#e5c77b] transition-transform group-hover:scale-110"
+                size={25}
+                className="relative animate-bounce text-[#e5c77b] transition-transform group-hover:scale-110"
               />
             </span>
-            <span className="text-[#e5c77b] font-bold text-base animate-[bounce_1s_infinite]">{safePhone}</span>
-          </a></span>
+            <span className="text-[#e5c77b] font-bold text-xl animate-bounce">
+              {safePhone}
+            </span>
+          </a>
+        </span>
 
         <div className="flex items-center gap-6">
           {/* Clickable Email */}
@@ -87,7 +89,6 @@ export default function Header({
           </a>
 
           {/* Clickable Ringing/Vibrating Phone Number */}
-          
         </div>
       </div>
 
@@ -138,6 +139,9 @@ export default function Header({
           <a className="nav-cta" href={`tel:${formattedPhone}`}>
             Call Now <ArrowUpRight size={15} />
           </a>
+          <button className="nav-cta" onClick={openChat}>
+            Chat Now <ArrowUpRight size={15} />
+          </button>
         </nav>
 
         <button
@@ -148,11 +152,11 @@ export default function Header({
           {open ? <X /> : <Menu />}
         </button>
       </header>
-      <div className="belowbar overflow-hidden border-b border-white/10 bg-[#0a071d]">
-  <p className="belowbar-text">
-    Get your solution through Astro, Tarot, Neuro and Psychic Reading
-  </p>
-</div>
+      <div className="belowbar border-b border-white/10 bg-[#0a071d]">
+        <p className="belowbar-text">
+          ✨ Get your solution through Astrology, Tarot Card, Numerology and Psychic Reading ✨
+        </p>
+      </div>
     </>
   );
 }

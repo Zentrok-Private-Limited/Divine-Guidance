@@ -3,14 +3,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
-  ArrowUpRight,
   ChevronLeft,
   ChevronRight,
-  Menu,
-  Moon,
-  Mail,
+  ArrowUpRight, Phone, MessageCircle,
   Star,
-  X,
   Sparkles,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -162,8 +158,11 @@ export function HeroSlider() {
   };
 
   const [title, copy, cta, image] = slides[active];
+  
 
   return (
+
+    
     <section
       className="relative isolate h-[680px] min-h-[680px] overflow-hidden bg-[#080616] md:h-[760px] md:min-h-[760px]"
       aria-label="Divine Guidance services"
@@ -364,6 +363,11 @@ export function SectionHeading({
 }
 export function ServiceCard({ service, index }: ServiceCardProps) {
   const [title, description, image, href] = service;
+  const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
 
   return (
     <motion.div
@@ -406,13 +410,31 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
             <span>Learn More</span>
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
-          <a
-            href="tel:+15307917775"
-            className="group inline-flex mt-4 items-center gap-2 button button-gold px-5 py-2.5 text-xs font-bold tracking-wider uppercase text-[#080616] shadow-[0_2px_10px_rgba(229,199,123,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(229,199,123,0.6)] active:scale-95"
-          >
-            <span className="text-[#080616]">Call Now (+1 530-791-7775)</span>
-            <ArrowUpRight className="h-4 w-4 text-[#080616] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+
+  {/* Call Now */}
+  <a
+    href="tel:+15307917775"
+    onClick={(e) => e.stopPropagation()}
+    className="inline-flex h-11 items-center justify-center gap-2 bg-[#e5c77b] px-5 text-xs font-bold uppercase tracking-wider !text-[#080616] shadow-[0_4px_15px_rgba(229,199,123,0.2)] transition-all duration-300 hover:scale-105 hover:bg-[#e5c77b] hover:!text-[#080616] hover:shadow-[0_0_25px_rgba(229,199,123,0.5)] active:scale-95"
+  >
+    <Phone className="h-4 w-4 !text-[#080616]" />
+    <span className="!text-[#080616]">Call Now</span>
+  </a>
+
+  {/* Chat Now */}
+  <button
+    type="button"
+    onClick={openChat}
+    className="inline-flex h-11 items-center justify-center gap-2 border border-[#e5c77b] bg-[#080616] px-5 text-xs font-bold uppercase tracking-wider !text-[#e5c77b] shadow-[0_4px_15px_rgba(229,199,123,0.1)] transition-all duration-300 hover:scale-105 hover:bg-[#080616] hover:!text-[#e5c77b] hover:shadow-[0_0_25px_rgba(229,199,123,0.45)] active:scale-95"
+  >
+    <MessageCircle className="h-4 w-4 !text-[#e5c77b]" />
+    <span className="!text-[#e5c77b]">
+      Chat Now
+    </span>
+  </button>
+
+</div>
         </div>
       </Link>
     </motion.div>

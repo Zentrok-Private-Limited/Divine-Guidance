@@ -8,6 +8,8 @@ import {
   ArrowUpRight,
   ChevronLeft,
   ChevronRight,
+  MessageCircle,
+  Phone,
 } from "lucide-react";
 
 // Sample slides data
@@ -31,12 +33,17 @@ const slides = [
     "/images/slide2.jpg",
   ],
   [
+    "Find Clarity in Your Job, Career & Money Matters",
+    "",
+    "Call Now +1 530-791-7775",
+    "/images/slide6.png",
+  ],
+  [
     "Find Guidance Through Divorce & Relationship Challenges",
     "",
     "Call Now +1 530-791-7775",
     "/images/slide3.png",
   ],
-  
   [
     "Heal Within & Reconnect With Your Inner Self",
     "",
@@ -49,37 +56,50 @@ const slides = [
 const serviceCards = [
   {
     title: "Are You Struggling in Your Love Life?",
-    subtitle: "Find clarity in relationships, emotional connections & love challenges",
+    subtitle:
+      "Find clarity in relationships, emotional connections & love challenges",
     image: "/images/getexloverback.jpg",
     link: "/our-services/love-spell",
   },
   {
     title: "Feeling Uncertain About Your Future?",
-    subtitle: "Gain insight, clarity & deeper guidance about the path ahead",
+    subtitle:
+      "Gain insight, clarity & deeper guidance about the path ahead",
     image: "/images/psychicreading.jpg",
     link: "/our-services/psychic-reading",
   },
   {
+    title: "Facing Challenges in Your Job, Career or Finances?",
+    subtitle:
+      "Gain clarity on career decisions, opportunities, growth & financial matters",
+    image: "/images/money.jpg",
+    link: "/our-services/Job-solution",
+  },
+  {
     title: "Going Through Emotional or Spiritual Struggles?",
-    subtitle: "Release negativity, restore balance & reconnect with yourself",
+    subtitle:
+      "Release negativity, restore balance & reconnect with yourself",
     image: "/images/heal.jpg",
     link: "/our-services/spiritual-healing",
   },
   {
     title: "Feeling Stressed, Drained or Out of Balance?",
-    subtitle: "Restore your energy, balance your chakras & encourage deep relaxation",
+    subtitle:
+      "Restore your energy, balance your chakras & encourage deep relaxation",
     image: "/images/reikihealing.jpg",
     link: "/our-services/Reiki-Healing",
   },
   {
     title: "Feeling Stuck in Your Career or Life?",
-    subtitle: "Break through mental blocks, shift limiting patterns & gain a new perspective",
+    subtitle:
+      "Break through mental blocks, shift limiting patterns & gain a new perspective",
     image: "/images/nlp.jpg",
     link: "/our-services/nlp",
   },
   {
     title: "Seeking Protection, Peace or Spiritual Guidance?",
-    subtitle: "Connect with higher wisdom and find comfort, guidance & inner peace",
+    subtitle:
+      "Connect with higher wisdom and find comfort, guidance & inner peace",
     image: "/images/angelhealing.jpg",
     link: "/our-services/Angel-Healing",
   },
@@ -89,6 +109,12 @@ export default function HeroSlider() {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
+
+  const openChat = () => {
+    if (typeof window !== "undefined" && window.jivo_api) {
+      window.jivo_api.open();
+    }
+  };
 
   useEffect(() => {
     if (paused) return;
@@ -184,17 +210,44 @@ export default function HeroSlider() {
                   </p>
                 )}
 
-                {/* CTA Button */}
-                <motion.a
-                  href="tel:+15307917775"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.25, duration: 0.3 }}
-                  className="inline-flex mt-6 items-center gap-1.5 bg-[#e5c77b] px-4 py-2 text-base font-light tracking-wider text-[#080616] transition-all duration-300 hover:bg-[#f3d387] hover:shadow-[0_0_20px_rgba(229,199,123,0.6)] hover:scale-105"
-                >
-                  <span className="text-[#080616]">{cta}</span>
-                  <ArrowUpRight size={16} className="text-[#080616] shrink-0" />
-                </motion.a>
+                {/* CTA Buttons */}
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  {/* Call Button */}
+                  <motion.a
+                    href="tel:+15307917775"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.25, duration: 0.3 }}
+                    className="inline-flex items-center gap-2 bg-[#e5c77b] px-4 py-2 text-sm font-semibold tracking-wide text-[#080616] transition-all duration-300 hover:bg-[#f3d387] hover:shadow-[0_0_20px_rgba(229,199,123,0.6)] hover:scale-105"
+                  >
+                    <span className="text-[#080616]">
+                      Call Now: +1 530-791-7775
+                    </span>
+                    <ArrowUpRight
+                      size={16}
+                      className="shrink-0 text-[#080616]"
+                    />
+                  </motion.a>
+
+                  {/* Chat Button */}
+                  <motion.button
+                    type="button"
+                    onClick={openChat}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.35, duration: 0.3 }}
+                    className="group inline-flex items-center gap-2 border border-[#e5c77b] bg-[#080616]/80 px-4 py-2 text-sm font-semibold tracking-wide text-[#e5c77b] transition-all duration-300 hover:scale-105 hover:bg-[#e5c77b] hover:shadow-[0_0_20px_rgba(229,199,123,0.45)]"
+                  >
+                    <MessageCircle
+                      size={16}
+                      className="shrink-0 text-[#e5c77b] transition-colors duration-300 group-hover:text-[#080616]"
+                    />
+
+                    <span className="text-[#e5c77b] transition-colors duration-300 group-hover:text-[#080616]">
+                      Chat Now
+                    </span>
+                  </motion.button>
+                </div>
               </motion.div>
             </div>
           </motion.article>
@@ -236,35 +289,62 @@ export default function HeroSlider() {
           2. SERVICES CARDS SECTION
       -------------------------------- */}
       <section className="border-t border-white/10 bg-[#0c0922] py-8 px-6 md:px-12 lg:px-16">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-9xl">
           {/* Cards Grid */}
-          <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
             {serviceCards.map((service) => (
-              <a
+              <div
                 key={service.title}
-                href={service.link}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#120d31] p-3 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#e5c77b]/40 hover:bg-[#1a1442] hover:shadow-xl"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#120d31] p-3 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#e5c77b]/40 hover:bg-[#1a1442] hover:shadow-xl"
               >
-                {/* Image Container */}
-                <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-black/40">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
+                {/* Main Card Content (Clickable) */}
+                <a href={service.link} className="flex flex-col flex-1">
+                  {/* Image Container */}
+                  <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-black/40">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
 
-                {/* Card Title & Subtitle */}
-                <div className="mt-2.5 flex flex-1 flex-col justify-between">
-                  <h3 className="font-serif text-xs font-medium text-white transition-colors group-hover:text-[#e5c77b] sm:text-sm">
-                    {service.title}
-                  </h3>
-                  <p className="mt-1 text-[10px] leading-snug text-white/60 sm:text-[11px]">
-                    {service.subtitle}
-                  </p>
+                  {/* Card Title & Subtitle */}
+                  <div className="mt-2.5 flex flex-1 flex-col justify-between">
+                    <h3 className="font-serif text-xs font-medium text-white transition-colors group-hover:text-[#e5c77b] sm:text-sm">
+                      {service.title}
+                    </h3>
+                    <p className="mt-1 text-[10px] leading-snug text-white/60 sm:text-[11px]">
+                      {service.subtitle}
+                    </p>
+                  </div>
+                </a>
+
+                {/* Compact Action Buttons */}
+                <div className="mt-4 flex items-center justify-center gap-2 pt-2 border-t border-white/5">
+                  {/* Call Button */}
+                  <a
+                    href="tel:+15307917775"
+                    title="Call Now"
+                    className="relative z-10 flex h-8 w-8 items-center justify-center rounded-lg bg-[#e5c77b] text-[#080616] transition-all duration-300 hover:bg-[#f3d387] hover:scale-105 hover:shadow-[0_0_12px_rgba(229,199,123,0.5)]"
+                  >
+                    <Phone
+                      size={15}
+                      className="shrink-0 text-[#080616] stroke-[2.5]"
+                    />
+                  </a>
+
+                  {/* Chat Button */}
+                  <button
+                    type="button"
+                    onClick={openChat}
+                    title="Chat Now"
+                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e5c77b]/40 bg-[#080616]/60 text-[#e5c77b] transition-all duration-300 hover:border-[#e5c77b] hover:bg-[#e5c77b] hover:text-[#080616] hover:scale-105 hover:shadow-[0_0_12px_rgba(229,199,123,0.3)]"
+                  >
+                    <MessageCircle size={14} className="shrink-0" />
+                  </button>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>

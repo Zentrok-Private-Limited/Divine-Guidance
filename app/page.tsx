@@ -28,7 +28,29 @@ export default function Home() {
     <>
       <main>
         <HeroSlider />
-        <section id="about" className="section-shell about">
+        <section id="services" className="section-shell services relative py-20">
+  <SectionHeading
+    eyebrow="Our services"
+    title="Trusted guidance for every chapter of life"
+  />
+
+  <div className="service-grid mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {serviceCatalog.map((service, index) => (
+      <ServiceCard key={service[0]} service={service} index={index} />
+    ))}
+  </div>
+
+  <div className="mt-12 flex justify-center">
+    <a
+      className="button button-gold centered-button inline-flex items-center gap-2 bg-[#e5c77b] px-8 py-4 text-sm font-light text-black transition-all hover:bg-white hover:shadow-[0_0_25px_rgba(229,199,123,0.4)]"
+      href="tel:+15307917775"
+    >
+      Ask your question now <ArrowUpRight size={17} />
+    </a>
+  </div>
+</section>
+
+<section id="about" className="section-shell about">
           <div className="about-image">
             <img
               src="/images/calm-mind.jpg"
@@ -54,27 +76,7 @@ export default function Home() {
             </a>
           </div>
         </section>
-        <section id="services" className="section-shell services relative py-20">
-  <SectionHeading
-    eyebrow="Our services"
-    title="Trusted guidance for every chapter of life"
-  />
 
-  <div className="service-grid mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {serviceCatalog.map((service, index) => (
-      <ServiceCard key={service[0]} service={service} index={index} />
-    ))}
-  </div>
-
-  <div className="mt-12 flex justify-center">
-    <a
-      className="button button-gold centered-button inline-flex items-center gap-2 rounded-full bg-[#e5c77b] px-8 py-4 text-sm font-semibold text-black transition-all hover:bg-white hover:shadow-[0_0_25px_rgba(229,199,123,0.4)]"
-      href="tel:+15307917775"
-    >
-      Ask your question now <ArrowUpRight size={17} />
-    </a>
-  </div>
-</section>
         <section className="split-section">
           <div>
             <p className="eyebrow">An experienced, human approach</p>
